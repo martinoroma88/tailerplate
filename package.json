@@ -1,21 +1,24 @@
 {
   "name": "tailerplate",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Minimal Tailwindcss + HTML boilerplate",
   "main": "index.js",
   "scripts": {
-    "dev:css": "postcss tailwind.css -o ./public/assets/style.css",
-    "build:css": "cross-env NODE_ENV=production postcss tailwind.css -o ./public/assets/style.css"
+    "css": "cross-env NODE_ENV=development postcss tailwind.css -o ./public/assets/style.css -w & npx live-server public",
+    "build": "cross-env NODE_ENV=production postcss tailwind.css -o ./public/assets/style.css",
+    "serve": "npx live-server public",
+    "dev": "run-p css serve"
   },
   "author": "Genesi Communication Design",
   "license": "ISC",
   "devDependencies": {
     "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
     "postcss-cli": "^8.3.1"
   },
   "dependencies": {
     "autoprefixer": "^10.2.1",
     "postcss": "^8.2.4",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "^2.1.0"
   }
 }
